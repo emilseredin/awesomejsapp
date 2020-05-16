@@ -15,6 +15,10 @@ const server = http.createServer((req, res) => {
     res.end(data);
 });
 
-server.listen(3000);
+
+//heroku doesn't know anything about port 3000
+//use process.env.PORT variable to get access to the port that is specified by heroku
+//e.g. PORT=1234 node server.js
+server.listen(process.env.PORT);
 // script is running now, and waiting for requests on port 3000
 console.log("Server has started!");
